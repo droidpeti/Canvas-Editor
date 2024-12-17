@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paint</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://picsum.photos/1920/1080?random');
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+        }
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            background-color: rgba(0,0,0,0.5);
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #Canvas {
+            border: 2px solid #fff;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out;
+            border-radius: 10px;
+        }
+        #Canvas:hover {
+            transform: scale(1.05);
+        }
+        .btn-custom {
+            margin: 5px;
+            transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .btn-custom:hover {
+            background-color: #ff4081;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Canvas a weben anya!</h1>
+        <div class="d-flex justify-content-center">
+            <canvas id="Canvas" class="my-4" width="500px" height="500px"></canvas>
+        </div>
+        <div class="text-center">
+            <button id="Save" class="btn btn-primary btn-custom" onclick="saveImage()">
+                <i class="fas fa-save"></i> Save Image
+            </button>
+            <label for="imageLoader" class="btn btn-secondary btn-custom">
+                <i class="fas fa-upload"></i> Import Image
+                <input onchange="importIMG()" name="imageLoader" id="imageLoader" type="file" accept="image/*" style="display: none;"/>
+            </label>
+            <button id="rotateLeft" onclick="rotate270()" class="btn btn-info btn-custom">
+                <i class="fas fa-undo"></i> Rotate Left
+            </button>
+            <button id="rotateRight" onclick="rotate90()" class="btn btn-info btn-custom">
+                <i class="fas fa-redo"></i> Rotate Right
+            </button>
+            <button id="mirror" onclick="mirror()" class="btn btn-warning btn-custom">
+                <i class="fas fa-arrows-alt-h"></i> Mirror
+            </button>
+            <button id="grayScale" onclick="grayScale()" class="btn btn-dark btn-custom">
+                <i class="fas fa-adjust"></i> Grayscale
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Font Awesome JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+</body>
+</html>
